@@ -2,7 +2,7 @@ private WritableImage createCustomizeQr(String extractedText) {
         try {
             if (extractedText == null || extractedText.isEmpty()) {
                 LOGGER.info("No valid text extracted from QR.");
-                Image fallback = new Image(getClass().getResource("/com/shop/images/failQrCode.png").toExternalForm());
+                Image fallback = new Image(getClass().getResource("path to a fallback image").toExternalForm());//change with actual //image path
                 return SwingFXUtils.toFXImage(SwingFXUtils.fromFXImage(fallback, null), null);
             }
 
@@ -18,7 +18,7 @@ private WritableImage createCustomizeQr(String extractedText) {
 
             // Gradient colors
             Color startColor = web("#074F3E");
-            Color midColor = web("#faab3f");
+            Color midColor = web("#faab3f");// take it mostly according to your so that will enhance logo's visibility
             Color endColor = web("#D8303B");
 
             WritableImage qrWithGradient = applyGradientDotsToQR(matrix, qrSize, startColor, midColor, endColor);
@@ -26,7 +26,7 @@ private WritableImage createCustomizeQr(String extractedText) {
 
         } catch (Exception e) {
             LOGGER.error("Error generating QR Code: " + e.getMessage());
-            Image fallback = new Image(getClass().getResource("/com/shop/images/failQrCode.png").toExternalForm());
+            Image fallback = new Image(getClass().getResource("path to a fallback image").toExternalForm());
             return SwingFXUtils.toFXImage(SwingFXUtils.fromFXImage(fallback, null), null);
         }
     }
